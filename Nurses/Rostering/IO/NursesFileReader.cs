@@ -12,7 +12,7 @@ namespace Nurses.Rostering.IO
             using (var csv = Factory.CreateCsvReader(nursesFile.OpenText()))
             {
                 csv.Configuration.ShouldSkipRecord = row => row.All(string.IsNullOrWhiteSpace);
-                return csv.GetRecords<Nurse>().ToList();
+                return csv.GetRecords<Nurse>().Distinct().ToList();
             }
         }
     }

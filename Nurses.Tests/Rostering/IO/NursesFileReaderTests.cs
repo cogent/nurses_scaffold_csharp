@@ -82,6 +82,25 @@ namespace Nurses.Tests.Rostering.IO
             });
         }
 
+        [Fact]
+        public void NursesFileReader_ReadCsv_WhenDuplicateRowsArePresent_SkipsOverThem()
+        {   
+            var csvLines = new List<string> {
+                _headerRow,
+                $"{_nurse1Name},{_nurse1Uid}",
+                $"{_nurse2Name},{_nurse2Uid}",
+                $"{_nurse1Name},{_nurse1Uid}"
+            };
+
+            var mockNursesFile = _createMockNursesFile(csvLines);          
+            var nurses = NursesFileReader.readCSV(mockNursesFile);
+
+            Assert.Equal(nurses, new List<Nurse> {
+                new Nurse { uid = _nurse1Name, name = _nurse1Uid },
+                new Nurse { uid = _nurse2Name, name = _nurse2Uid }
+            });
+        }
+
         private static INursesFile _createMockNursesFile(List<string> csvLines)
         {
             var reader = TestHelpers.CreateStreamReader(csvLines);
