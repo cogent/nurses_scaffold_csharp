@@ -10,11 +10,18 @@ namespace Nurses
         /// <param name="inputFile">The input file to use for schedule generation</param>
         public static int Main(DateTime start, DateTime end, NursesFile inputFile)
         {
-            var nurses = NursesFileReader.readCSV(inputFile);
-            
-            Console.WriteLine($"found data for {nurses.Count} nurses in {inputFile.FullName}");
-            Console.WriteLine($"calculating roster for {start.ToString("d")} until {end.ToString("d")}");
-            
+            try {
+                var nurses = NursesFileReader.readCSV(inputFile);
+                Console.WriteLine($"found data for {nurses.Count} nurses in {inputFile.FullName}");
+                Console.WriteLine($"calculating roster for {start.ToString("d")} until {end.ToString("d")}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                Console.WriteLine("\nError: {0}", ex.Message);
+                return (int)ExitCode.Failure;
+            }
+
             return (int)ExitCode.Success;
         }
 

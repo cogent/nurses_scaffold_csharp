@@ -19,5 +19,21 @@ namespace Nurses.Tests
             var returnCode = Program.Main(_start, _end, _inputFile);
             Assert.Equal((int)Program.ExitCode.Success, returnCode);
         }
+
+        [Fact]
+        public static void Program_Main_WhenTheInputFileDoesNotExist_ReturnsFailure()
+        {
+            var inputFile = new NursesFile("not/found.csv");
+            var returnCode = Program.Main(_start, _end, inputFile);
+            Assert.Equal((int)Program.ExitCode.Failure, returnCode);
+        }
+
+        [Fact]
+        public static void Program_Main_WhenGivenADirectory_ReturnsFailure()
+        {
+            var inputFile = new NursesFile("../../../SampleData");
+            var returnCode = Program.Main(_start, _end, inputFile);
+            Assert.Equal((int)Program.ExitCode.Failure, returnCode);
+        }
     }
 }
