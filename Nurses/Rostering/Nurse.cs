@@ -12,5 +12,10 @@ namespace Nurses.Rostering
             if (Object.ReferenceEquals(this, other)) return true;
             return uid.Equals(other.uid) && name.Equals(other.name);
         }
+
+        public override int GetHashCode()
+        {
+            return uid.GetHashCode() ^ name.GetHashCode();
+        }
     }
 }

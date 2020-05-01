@@ -82,5 +82,24 @@ namespace Nurses.Tests.Rostering
         }
 
         #endregion
+    
+        #region GetHashCode
+
+        [Fact]
+        public void Nurse_GetHashCode_ReturnsHashCodeUsingUidAndName()
+        {
+            var nurse = new Nurse { name = name, uid = uid };
+
+            var sameNurse = new Nurse { name = name, uid = uid };
+            Assert.Equal(nurse.GetHashCode(), sameNurse.GetHashCode());
+
+            var otherNurse = new Nurse { name = name, uid = "20xy8z56" };
+            Assert.NotEqual(nurse.GetHashCode(), otherNurse.GetHashCode());
+
+            var anotherNurse = new Nurse { name = "Bucky Barnes", uid = uid };
+            Assert.NotEqual(nurse.GetHashCode(), anotherNurse.GetHashCode());
+        }
+
+        #endregion
     }
 }
