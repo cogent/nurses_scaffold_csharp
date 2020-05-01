@@ -1,12 +1,26 @@
 ﻿using System;
+using Nurses.Rostering.IO;
 
 namespace Nurses
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        /// <param name="start">The start date of the schedule</param>
+        /// <param name="end">The end date of the schedule</param>
+        /// <param name="inputFile">The input file to use for schedule generation</param>
+        public static int Main(DateTime start, DateTime end, NursesFile inputFile)
         {
-            Console.WriteLine("Hello World!");
+            var nurses = NursesFileReader.readCSV(inputFile);
+            
+            Console.WriteLine($"found data for {nurses.Count} nurses in {inputFile.FullName}");
+            Console.WriteLine($"calculating roster for {start.ToString("d")} until {end.ToString("d")}");
+            
+            return (int)ExitCode.Success;
+        }
+
+        public enum ExitCode : int {
+            Success = 0,
+            Failure = 1,
         }
     }
 }
