@@ -11,6 +11,7 @@ namespace Nurses
         public static int Main(DateTime start, DateTime end, NursesFile inputFile)
         {
             try {
+                _validateInputs(start, end);
                 var nurses = NursesFileReader.readCSV(inputFile);
                 Console.WriteLine($"found data for {nurses.Count} nurses in {inputFile.FullName}");
                 Console.WriteLine($"calculating roster for {start.ToString("d")} until {end.ToString("d")}");
@@ -28,6 +29,13 @@ namespace Nurses
         public enum ExitCode : int {
             Success = 0,
             Failure = 1,
+        }
+
+        private static void _validateInputs(DateTime start, DateTime end)
+        {
+            if(start >= end) {
+                throw new ArgumentException("The start date must occur before the end date!");
+            }
         }
     }
 }

@@ -35,5 +35,13 @@ namespace Nurses.Tests
             var returnCode = Program.Main(_start, _end, inputFile);
             Assert.Equal((int)Program.ExitCode.Failure, returnCode);
         }
+
+        [Fact]
+        public static void Program_Main_WhenStartDateAfterEndDate_ReturnsFailure()
+        {
+            var end = _start.AddDays(-1);
+            var returnCode = Program.Main(_start, end, _inputFile);
+            Assert.Equal((int)Program.ExitCode.Failure, returnCode);
+        }
     }
 }
