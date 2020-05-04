@@ -26,22 +26,33 @@ Some code has already been provided to help save you time. This focusses on the 
 
 You're welcome to change any of this code if you like, but the goal is to save you time so you can show us how you'd like to solve the interesting parts of this problem, not spend your time formatting strings for output.
 
-## Run the app
+## Development
+
+### prerequisites
+
+- [dotnet core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+
+check the version you have installed with
+
+```bash
+$ dotnet --version
+```
+
+### run the app
 
 The application is intended to be used as a command line interface (CLI) tool. You can invoke it with the dotnet CLI.
 
 ```bash
 $ dotnet run --project Nurses --start 2020-04-10 --end 2020-05-10 --input-file data/nurses.csv
-```
 
-or
+# or
 
-```bash
 $ cd Nurses
+
 $ dotnet run --start 2020-04-10 --end 2020-05-10 --input-file data/nurses.csv
 ```
 
-## Run the tests
+### run the tests
 
 ```bash
 $ dotnet test
