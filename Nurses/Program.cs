@@ -1,6 +1,7 @@
 ﻿# pragma warning disable 1591
 
 using System;
+using Nurses.Rostering;
 using Nurses.Rostering.IO;
 
 namespace Nurses
@@ -15,8 +16,10 @@ namespace Nurses
             try {
                 _validateInputs(start, end);
                 var nurses = NursesFileReader.readCSV(inputFile);
-                Console.WriteLine($"found data for {nurses.Count} nurses in {inputFile.FullName}");
-                Console.WriteLine($"calculating roster for {start.ToString("d")} until {end.ToString("d")}");
+                Console.WriteLine($"\nfound data for {nurses.Count} nurses in {inputFile.FullName}");
+                Console.WriteLine($"\ncalculating roster for {start.ToString("d")} until {end.ToString("d")}");
+                var roster = new RosterBuilder().Build(start, end, nurses);
+                roster.Write();
             }
             catch (Exception ex)
             {
