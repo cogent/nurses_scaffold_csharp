@@ -20,7 +20,6 @@ namespace Nurses
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
                 Console.WriteLine("\nError: {0}", ex.Message);
                 return (int)ExitCode.Failure;
             }
