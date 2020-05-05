@@ -6,7 +6,7 @@ In a hospital environment, nurses work a rotating shift system. There are three 
 
 You have been tasked with developing a rostering system which can calculate and output the nursing roster for any specified month.
 
-A list of rosterable nurses has been provided in the file spec/sample_data/nurses.csv.
+A list of rosterable nurses has been provided in the file [Nurses.Tests/SampleData/nurses.csv](Nurses.Tests/SampleData/nurses.csv).
 
 ## Considerations
 
