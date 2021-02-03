@@ -43,13 +43,13 @@ $ dotnet --version
 The application is intended to be used as a command line interface (CLI) tool. You can invoke it with the dotnet CLI.
 
 ```bash
-$ dotnet run --project Nurses --start 2020-04-10 --end 2020-05-10 --input-file data/nurses.csv
-
-# or
-
 $ cd Nurses
 
-$ dotnet run --start 2020-04-10 --end 2020-05-10 --input-file data/nurses.csv
+$ dotnet run --start 2020-04-10 --end 2020-05-10 --input-file Nurses.Tests/SampleData/nurses.csv
+
+# or, run it from the root of the repository by specifying the Nurses project using the --project flag
+
+$ dotnet run --project Nurses --start 2020-04-10 --end 2020-05-10 --input-file Nurses.Tests/SampleData/nurses.csv
 ```
 
 ### run the tests
