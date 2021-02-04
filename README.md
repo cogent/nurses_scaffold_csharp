@@ -45,7 +45,7 @@ The application is intended to be used as a command line interface (CLI) tool. Y
 ```bash
 $ cd Nurses
 
-$ dotnet run --start 2020-04-10 --end 2020-05-10 --input-file Nurses.Tests/SampleData/nurses.csv
+$ dotnet run --start 2020-04-10 --end 2020-05-10 --input-file ../Nurses.Tests/SampleData/nurses.csv
 
 # or, run it from the root of the repository by specifying the Nurses project using the --project flag
 
