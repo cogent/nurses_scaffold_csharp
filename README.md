@@ -4,7 +4,7 @@
 
 In a hospital environment, nurses work a rotating shift system. There are three work shifts per day; a morning shift, an evening shift and a night shift. Each day, all three shift needs to be filled.
 
-You have been tasked with developing a rostering system which can calculate and output the nursing roster for any specified month.
+You have been tasked with developing a rostering system which can calculate and output the nursing roster for any specified time period.
 
 A list of rosterable nurses has been provided in the file [Nurses.Tests/SampleData/nurses.csv](Nurses.Tests/SampleData/nurses.csv).
 
