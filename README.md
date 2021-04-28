@@ -32,10 +32,10 @@ You're welcome to change any of this code if you like, but the goal is to save y
 
 - [dotnet core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 
-check the version you have installed with
+check that you have it installed with
 
 ```bash
-$ dotnet --version
+$ dotnet --list-sdks
 ```
 
 ### run the app
