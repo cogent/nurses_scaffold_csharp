@@ -2,19 +2,17 @@
 
 ## Challenge
 
-In a hospital environment, nurses work a rotating shift system. There are three work shifts per day; a morning shift, an evening shift and a night shift. Each day, all three shift needs to be filled.
+You just started work for a startup that sells medical rostering software. They’ve just landed a new client, a major hospital, and everyone’s excited! However, the HR policies at the hospital are too complex for the software to handle.
 
-You have been tasked with developing a rostering system which can calculate and output the nursing roster for any specified time period.
+At the hospital nurses work a rotating shift system. There are three work shifts per day; a morning shift, an evening shift and a night shift. Each day, all three shifts need to be filled.
 
-A list of rosterable nurses has been provided in the file [Nurses.Tests/SampleData/nurses.csv](Nurses.Tests/SampleData/nurses.csv).
+Your task is to develop a rostering system that implements the following policies:
 
-## Considerations
+Five nurses need to be on staff for each shift.
+Nurses must not be expected to work more than one shift per day.
+The rostering system should calculate and output the nursing roster for any time period (specified by a start and end date).
 
-- 5 nurses need to be on staff for each shift.
-- Nurses must not be expected to work more than one shift per day.
-- To maintain a healthy work/life balance, no nurse can be asked to work for more than 5 days in a row.
-- Similarly, no nurse can be expected to work more than five night shifts per month.
-- Days off must occur in groups of two or more.
+A list of rosterable nurses has been provided in the file spec/sample_data/nurses.csv.
 
 ## Scaffold Code
 
@@ -57,9 +55,3 @@ $ dotnet run --project Nurses --start 2020-04-10 --end 2020-05-10 --input-file N
 ```bash
 $ dotnet test
 ```
-
-## Pairing Opportunities
-
-- Implement the Rostering logic.
-- Add support for another type of input file (maybe JSON). The app currently only supports CSV.
-- What if we introduced more validation on the arguments that have been supplied to the main program? How might we better handle validations and make the concept of argument validation more extendable in this code?
