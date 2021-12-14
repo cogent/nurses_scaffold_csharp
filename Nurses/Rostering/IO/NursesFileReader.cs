@@ -9,13 +9,10 @@ namespace Nurses.Rostering.IO
 {
     public class NursesFileReader
     {
-        public static List<Nurse> readCSV(INursesFile nursesFile)
+        public static String[] readFile(INursesFile nursesFile)
         {
-            using (var csv = Factory.CreateCsvReader(nursesFile.OpenText()))
-            {
-                csv.Configuration.ShouldSkipRecord = row => row.All(string.IsNullOrWhiteSpace);
-                return csv.GetRecords<Nurse>().Distinct().ToList();
-            }
+            var lines = System.IO.File.ReadAllLines(nursesFile.FullName);
+            return new ArraySegment<string>(lines, 1, lines.Length - 1).Array;
         }
     }
 }

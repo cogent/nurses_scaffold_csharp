@@ -25,7 +25,7 @@ namespace Nurses.Rostering
             _config = rosterConfig;
         }
 
-        public Roster Build(DateTime start, DateTime end, List<Nurse> nurses)
+        public Roster Build(DateTime start, DateTime end, String[] nurses)
         {
             // TODO: Implement Rostering Logic
             return new Roster();
