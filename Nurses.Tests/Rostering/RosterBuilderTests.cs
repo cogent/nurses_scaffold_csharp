@@ -32,7 +32,7 @@ namespace Nurses.Tests.Rostering
         {
             var start = DateTime.Now; 
             var end = DateTime.Now;
-            var nurses = new List<Nurse> {};
+            string[] nurses = {};
             Assert.IsType<Roster>(new RosterBuilder().Build(start, end, nurses));
         }
     }

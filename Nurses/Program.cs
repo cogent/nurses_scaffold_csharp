@@ -15,8 +15,8 @@ namespace Nurses
         {
             try {
                 _validateInputs(start, end);
-                var nurses = NursesFileReader.readCSV(inputFile);
-                Console.WriteLine($"\nfound data for {nurses.Count} nurses in {inputFile.FullName}");
+                var nurses = NursesFileReader.readFile(inputFile);
+                Console.WriteLine($"\nfound data for {nurses.Length} nurses in {inputFile.FullName}");
                 Console.WriteLine($"\ncalculating roster for {start.ToString("d")} until {end.ToString("d")}");
                 var roster = new RosterBuilder().Build(start, end, nurses);
                 roster.Write();
@@ -37,7 +37,7 @@ namespace Nurses
 
         private static void _validateInputs(DateTime start, DateTime end)
         {
-            if(start >= end) {
+            if (start >= end) {
                 throw new ArgumentException("The start date must occur before the end date!");
             }
         }
